@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC Security & Solar Solutions</title>
+<style>
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+body {background-color: #0b1e3d; color: white; line-height: 1.6;}
+
+/* Header */
+header {padding: 20px; text-align: center; background-color: #1e3a6a;}
+header .logo img {max-height: 70px;}
+header p {font-size: 1.2em; color: #a8d0ff; margin-top: 10px;}
+
+/* Navigation */
+nav {display: flex; justify-content: center; gap: 20px; margin: 15px 0;}
+nav a {color: #a8d0ff; text-decoration: none; font-weight: bold;}
+nav a:hover {color: #00aaff;}
+
+/* Sections */
+section {padding: 40px 20px;}
+section h2 {color: #00aaff; margin-bottom: 20px; text-align:center;}
+
+/* Services */
+.services-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
+.service {background-color: #1e3a6a; padding: 20px; border-radius: 10px; width: 250px; text-align: center;}
+
+/* Gallery */
+.gallery-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;}
+.gallery-container img {width: 200px; height: 150px; object-fit: cover; border-radius: 10px;}
+
+/* Testimonials */
+.testimonial {background-color: #1e3a6a; padding: 15px; border-radius: 10px; margin: 10px;}
+
+/* Contact */
+.contact-form {max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;}
+.contact-form input, .contact-form textarea {padding: 10px; border-radius: 5px; border: none;}
+.contact-form button {padding: 10px; background-color: #00aaff; border: none; border-radius: 5px; color:white; cursor:pointer;}
+.contact-form button:hover {background-color: #0090cc;}
+
+/* Google Map */
+.map-container {margin-top: 20px; text-align: center;}
+.map-container iframe {width: 100%; max-width: 500px; height: 300px; border: 0; border-radius:10px;}
+
+/* Chatbot */
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  z-index: 1000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #0b1e3d;
+  color: white;
+}
+#chatbot-header {background-color: #1e3a6a; padding: 10px; font-weight: bold; text-align: center; cursor: pointer;}
+#chatbot-body {display: none; flex-direction: column; padding: 10px; max-height: 400px;}
+#chatbot-messages {height: 250px; overflow-y: auto; margin-bottom: 10px;}
+.chatbot-message {margin: 5px 0;}
+.chatbot-user {text-align: right; color: #a8d0ff;}
+.chatbot-bot {text-align: left; color: #ffffff;}
+#chatbot-input {width: 100%; padding: 8px; border: none; border-radius: 5px;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="TC Security & Solar Solutions Logo">
+  </div>
+  <p>Powering and Protecting Your Future</p>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Services Section -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services-container">
+    <div class="service">
+      <h3>Solar Installation</h3>
+      <p>We install residential and commercial solar systems with battery storage solutions.</p>
+    </div>
+    <div class="service">
+      <h3>Security Systems</h3>
+      <p>We provide CCTV, alarms, access control, and electric fencing to protect your property.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery">
+  <h2>Our Projects</h2>
+  <div class="gallery-container">
+    <img src="https://via.placeholder.com/200x150.png?text=Solar+Project" alt="Solar Project">
+    <img src="https://via.placeholder.com/200x150.png?text=Security+Installation" alt="Security Project">
+    <img src="https://via.placeholder.com/200x150.png?text=Solar+Panels" alt="Solar Panels">
+    <img src="https://via.placeholder.com/200x150.png?text=CCTV+Installation" alt="CCTV">
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <h2>What Clients Say</h2>
+  <div class="testimonial">"Excellent solar installation! Very professional." – Jane D.</div>
+  <div class="testimonial">"Our property feels so much safer thanks to TC Security." – Mark R.</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="map-container">
+    <iframe src="https://maps.google.com/maps?q=Randburg,Roodepoort&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  </div>
+</section>
+
+<!-- Chatbot -->
+<div id="chatbot">
+  <div id="chatbot-header">TC Assistant</div>
+  <div id="chatbot-body">
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Type your message..." />
+  </div>
+</div>
+
+<script>
+/* Chatbot JS */
+const chatbotHeader = document.getElementById('chatbot-header');
+const chatbotBody = document.getElementById('chatbot-body');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+const responses = [
+  {keywords: ['hello', 'hi'], reply: 'Hello! I am TC Assistant. How
+
+
